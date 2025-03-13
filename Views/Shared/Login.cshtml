@@ -1,0 +1,82 @@
+﻿@{
+    Layout = null; // ✅ Không dùng layout chung
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập - Furniture WMS</title>
+    <link rel="stylesheet" href="~/css/Login.css"> <!-- Thêm CSS riêng -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> <!-- FontAwesome Icons -->
+</head>
+<body>
+    <div class="container">
+        <!-- Cột bên trái: Form đăng nhập -->
+        <div class="login-box">
+            <div class="logo">
+                <i class="fa-solid fa-hat-wizard"></i> Furniture WMS
+            </div>
+            <div class="logo">
+                <img src="~/lib/images/Logo/cropped_logo_no_border.png alt="Logo">
+            </div>
+
+            <div class="segment">
+                <button class="segmented-btn active" id="sign-in-btn">Sign In</button>
+                <button class="segmented-btn" id="sign-up-btn">Sign Up</button>
+            </div>
+            <form>
+                <div class="field">
+                    <input class="input-textbox" type="email" name="email" id="user-email" placeholder="Email" required />
+                </div>
+                <button class="btn">Continue</button>
+                <p class="or">Or Continue With</p>
+                <div class="social">
+                    <button class="social-btn">
+                        <i class="fa-brands fa-google"></i>
+                    </button>
+                    <button class="social-btn">
+                        <i class="fa-brands fa-facebook"></i>
+                    </button>
+                </div>
+            </form>
+            <div class="footer">
+                <ul class="footer-nav">
+                    <li><a href="#">Terms of Use</a></li>
+                    <li><a href="#">Disclosures</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Cột bên phải: Hình ảnh nền -->
+        <div class="image-box">
+            <img src="https://codetheworld.io/wp-content/uploads/2024/03/tokyo.jpg" alt="City Background">
+        </div>
+    </div>
+</body>
+
+<form id="login-form">
+    <div class="field">
+        <input class="input-textbox" type="email" name="email" id="user-email" placeholder="Email" required />
+    </div>
+
+    <!-- Ô mật khẩu ban đầu ẩn -->
+    <div class="field" id="password-field" style="display: none;">
+        <input class="input-textbox" type="password" name="password" id="user-password" placeholder="Mật khẩu" required />
+    </div>
+
+    <!-- Ô xác nhận mật khẩu ban đầu ẩn -->
+    <div class="field" id="confirm-password-field" style="display: none;">
+        <input class="input-textbox" type="password" name="confirm-password" id="confirm-password" placeholder="Xác nhận mật khẩu" required />
+    </div>
+
+    <button type="button" class="btn" id="continue-btn">Continue</button>
+</form>
+
+
+
+</html>
+
+
