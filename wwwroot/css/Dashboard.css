@@ -1,0 +1,297 @@
+﻿{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    height: 100vh; /* Chiều cao toàn màn hình */
+    overflow: hidden; /* Ẩn cuộn dọc */
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #f0f0f0;
+    height: 100vh;
+    padding: 20px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+    .sidebar h2 {
+        text-align: center;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .sidebar img {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .sidebar a {
+        display: block;
+        padding: 10px 15px; /* Giống với .dropdown-toggle */
+        text-decoration: none;
+        color: black;
+        border-radius: 5px;
+        margin: 5px 10px;
+        font-weight: bold;
+        background-color: transparent;
+        width: 100%;
+        text-align: left;
+    }
+
+        .sidebar a:hover,
+        .active {
+            background-color: #007bff;
+            color: white;
+        }
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100%; /* Đảm bảo chiếm đủ chiều rộng */
+}
+
+.dropdown-toggle {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-weight: bold;
+    background-color: #007bff;
+    color: white;
+    text-align: left;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    z-index: 1000;
+    padding: 10px 0; /* Thêm khoảng cách để dễ click */
+}
+
+    .dropdown:hover .dropdown-menu,
+    .dropdown-menu:hover {
+        display: block;
+    }
+
+    .dropdown-menu a {
+        display: block;
+        padding: 10px 20px;
+        text-decoration: none;
+        color: black;
+        font-size: 16px;
+    }
+
+        .dropdown-menu a:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+
+    .dropdown-menu.show {
+        display: block;
+    }
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+    .dropdown-menu a:hover {
+        background-color: #007bff;
+        color: white;
+    }
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+    .gallery img {
+        width: 200px; /* Hoặc dùng max-width để tự động căn chỉnh */
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease-in-out;
+    }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+
+
+
+.content {
+    margin-left: 110px; /* Đảm bảo nó không bị dính vào sidebar */
+    width: calc(100% - 250px); /* Mở rộng chiều rộng vừa đủ */
+    padding: 20px;
+}
+
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    left: 250px;
+    width: calc(100% - 250px);
+    top: 0;
+    z-index: 1000;
+    height: 60px;
+}
+
+.search-bar {
+    width: 50%;
+    padding: 8px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+}
+
+.logout-button {
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 1px solid #d9534f;
+    background-color: white;
+    color: #d9534f;
+    cursor: pointer;
+}
+
+    .logout-button:hover {
+        background-color: #d9534f;
+        color: white;
+    }
+
+.dashboard-container {
+    display: flex;
+}
+
+.dashboard-content {
+    margin-top: 80px;
+    margin-left: 0;
+    padding: 20px;
+}
+
+.charts {
+    display: flex;
+    justify-content: flex-start; /* Đưa về trái */
+    gap: 20px;
+    width: 100%;
+}
+
+.chart-container {
+    flex: 1;
+    min-width: 550px; /* Mở rộng chiều rộng */
+    height: 300px; /* Tăng chiều cao */
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.order-section {
+    height: 40%; /* Chiếm 40% chiều cao màn hình */
+    overflow: auto; /* Đề phòng bảng quá dài */
+}
+
+.order-section {
+    width: 100%;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 60px; /* Đẩy lên trên để không bị footer che */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Footer */
+.footer {
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: left;
+    padding: 15px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex; /* Kích hoạt flexbox */
+    justify-content: space-between; /* Đẩy chữ qua trái, icon qua phải */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    padding: 10px 20px; /* Thêm padding để căn đẹp hơn */
+}
+
+.user-info {
+    padding: 15px;
+    text-align: center;
+    background: #ddd;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+    .user-info span {
+        font-weight: bold;
+        display: block;
+    }
+
+.btn {
+    display: block;
+    text-align: center;
+    width: 100%;
+    margin-top: 5px;
+}

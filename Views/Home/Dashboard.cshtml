@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="vi">
 
@@ -302,3 +303,137 @@
 </body>
 
 </html>
+=======
+@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml"; // Sử dụng layout chung
+}
+
+<div class="dashboard-container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2 class="logo-container">
+            <img src="~/images/logo.png" alt="Luxury WMS Logo" class="logo">
+            <span>Luxury WMS</span>
+        </h2>
+        <a href="/Home/Index" class="active">Trang chủ</a>
+
+        <!-- Dropdown Danh Mục -->
+        <div class="dropdown">
+            <a href="#" class="dropdown-toggle">Danh Mục ▼</a>
+            <div class="dropdown-menu">
+                <a href="/Category/PhongKhach">Phòng khách</a>
+                <a href="/Category/PhongNgu">Phòng ngủ</a>
+                <a href="/Category/PhongBep">Phòng bếp</a>
+                <a href="/Category/PhongLamViec">Phòng làm việc</a>
+                <a href="/Category/PhongVeSinh">Phòng vệ sinh</a>
+            </div>
+        </div>
+
+        <a href="/Product/Index"><i class="fas fa-box"></i> Quản lý sản phẩm</a>
+        <a href="/Order/Index"><i class="fas fa-shopping-cart"></i> Quản lý đơn hàng</a>
+        <a href="/Customer/Index"><i class="fas fa-users"></i> Khách hàng</a>
+        <a href="/Warehouse/NhapKho"><i class="fas fa-warehouse"></i> Nhập kho</a>
+        <a href="/Warehouse/XuatKho"><i class="fas fa-truck-loading"></i> Xuất kho</a>
+
+        @if (Context.Session.GetString("Role") == "Admin")
+        {
+            <a href="/User/Index"><i class="fas fa-user-shield"></i> Quản lý người dùng</a>
+        }
+    </div>
+
+    <!-- Nội dung chính -->
+    <div class="content">
+        <!-- Topbar -->
+        <div class="topbar">
+            <input type="text" class="search-bar" placeholder="Tìm kiếm...">
+            <a href="/Account/Logout" class="btn btn-danger logout-button">Đăng xuất</a>
+        </div>
+
+        <!-- Biểu đồ -->
+        <div class="charts">
+            <div class="chart-container">
+                <h3>Tổng doanh thu</h3>
+                <canvas id="barChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3>Tổng sản phẩm</h3>
+                <canvas id="pieChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Đơn hàng gần đây -->
+        <div class="order-section">
+            <h3>Đơn hàng gần đây</h3>
+            <table>
+                <tr>
+                    <th>Tên</th>
+                    <th>Email</th>
+                    <th>Tổng tiền</th>
+                    <th>Ngày</th>
+                    <th>Chi tiết</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="main-footer">
+    <div class="footer-container">
+        <div class="footer-bottom">
+            <p>Copyright © 2025 Luxury WMS. All Rights Reserved.</p>
+            <div class="social-icons">
+                <a href="#"><img src="~/lib/images/Logo/Facebook.jpg" alt="Facebook"></a>
+                <a href="#"><img src="~/lib/images/Logo/Messenger.jpg" alt="Messenger"></a>
+                <a href="#"><img src="~/lib/images/Logo/Zalo.png" alt="Zalo"></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var ctx1 = document.getElementById('barChart').getContext('2d');
+        new Chart(ctx1, {
+            type: 'bar',
+            data: {
+                labels: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5'],
+                datasets: [{
+                    label: 'Doanh thu',
+                    data: [12000, 19000, 3000, 5000, 20000],
+                    backgroundColor: 'rgba(54, 162, 235, 0.6)'
+                }]
+            }
+        });
+
+        var ctx2 = document.getElementById('pieChart').getContext('2d');
+        new Chart(ctx2, {
+            type: 'doughnut',
+            data: {
+                labels: ['Sofa', 'Bàn', 'Tủ', 'Ghế'],
+                datasets: [{
+                    data: [25, 25, 25, 25],
+                    backgroundColor: ['red', 'blue', 'green', 'yellow']
+                }]
+            }
+        });
+
+        // Hiệu ứng dropdown menu
+        document.querySelector(".dropdown-toggle").addEventListener("click", function (event) {
+            event.preventDefault();
+            var menu = document.querySelector(".dropdown-menu");
+            menu.classList.toggle("show");
+        });
+
+        // Ẩn menu khi click ra ngoài
+        document.addEventListener("click", function (event) {
+            var dropdown = document.querySelector(".dropdown");
+            if (!dropdown.contains(event.target)) {
+                document.querySelector(".dropdown-menu").classList.remove("show");
+            }
+        });
+    });
+</script>
+>>>>>>> b9741e2 (Phuc Update)
