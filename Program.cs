@@ -43,7 +43,8 @@ app.UseAuthorization();
 // 🔹 Định tuyến mặc định (Mở trang Login trước)
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Account}/{action=Login}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}");
+
 
 app.UseStaticFiles();
 

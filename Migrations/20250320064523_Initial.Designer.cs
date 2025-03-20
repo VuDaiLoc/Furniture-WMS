@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Furniture_WMS.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250320051408_Initial")]
+    [Migration("20250320064523_Initial")]
     partial class Initial
     {
         /// <inheritdoc />

@@ -7,18 +7,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng nhập</title>
-    <link rel="stylesheet" href="~/css/Login.css">
+    <title>Đăng nhập - Furniture WMS</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .login-container {
+            background: rgba(255, 255, 255, 0.85); /* Nền trắng trong suốt */
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Đổ bóng sang trọng */
+            width: 380px;
+            text-align: center;
+            border: 2px solid #d4af37; /* Viền vàng ánh kim */
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.8); /* Trong suốt nhẹ */
+            color: #333;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 6px;
+            background-color: #d4af37; /* Màu vàng ánh kim */
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+            button:hover {
+                background-color: #b8860b; /* Màu vàng đồng khi hover */
+            }
+
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+
+        .social-login {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+            .social-login button {
+                background-color: white;
+                border: 1px solid #ddd;
+                color: black;
+            }
+
+                .social-login button:hover {
+                    background-color: #eee;
+                }
+    </style>
 </head>
 <body>
-    <div class="login-container">
-        <h2>Đăng nhập</h2>
-        <form method="post" action="/Account/Login">
-            <input type="text" name="username" placeholder="Tên đăng nhập" required>
-            <input type="password" name="password" placeholder="Mật khẩu" required>
-            <button type="submit">Đăng nhập</button>
-        </form>
-        <p style="color: red;">@ViewBag.Error</p>
+    <!-- Hình nền -->
+    <img src="~/lib/images/Ảnh Trang Chủ/Ảnh nền Login.jpg" alt="Background Image" class="bg-image">
+
+    <!-- Form đăng nhập -->
+    <div class="d-flex justify-content-center align-items-center vh-100">
+        <div class="login-container">
+            <h2>Furniture WMS</h2>
+            <img src="~/lib/images/Logo/cropped_logo_no_border.png" alt="Logo" class="rounded-circle" width="50">
+
+            @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+            {
+                <p class="error-message">@ViewBag.ErrorMessage</p>
+            }
+
+            <form method="post">
+                <input type="email" name="email" placeholder="Nhập Tài Khoản" required>
+                <input type="password" name="password" placeholder="Nhập Mật khẩu" required>
+                <button type="submit">Đăng nhập</button>
+            </form>
+
+            <div class="social-login">
+                <button><i class="fab fa-google"></i> Google</button>
+            </div>
+        </div>
     </div>
 </body>
 </html>
