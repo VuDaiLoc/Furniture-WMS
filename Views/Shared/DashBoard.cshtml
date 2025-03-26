@@ -1,0 +1,83 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<!-- Layout chính -->
+<div class="flex h-screen bg-[#1c1c1c] text-white">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-[#3b2f2f] text-white flex flex-col p-4">
+        <div class="flex items-center space-x-2 mb-6">
+            <img src="/images/logo.png" class="w-10 h-10 rounded-full" />
+            <span class="text-xl font-bold">Luxury WMS</span>
+        </div>
+
+        <nav class="flex-1">
+            <a href="#" class="block px-4 py-2 bg-[#7b4b2f] rounded font-semibold">Trang chủ</a>
+            <div class="mt-4">
+                <p class="font-semibold">Danh Mục</p>
+                <ul class="space-y-2 mt-2">
+                    <li><a href="#" class="block px-4 py-2 hover:bg-[#5e4034] rounded">Quản lý sản phẩm</a></li>
+                    <li><a href="#" class="block px-4 py-2 hover:bg-[#5e4034] rounded">Quản lý đơn hàng</a></li>
+                    <li><a href="#" class="block px-4 py-2 hover:bg-[#5e4034] rounded">Khách hàng</a></li>
+                    <li><a href="#" class="block px-4 py-2 hover:bg-[#5e4034] rounded">Nhập kho</a></li>
+                    <li><a href="#" class="block px-4 py-2 hover:bg-[#5e4034] rounded">Xuất kho</a></li>
+                    <li><a href="#" class="block px-4 py-2 hover:bg-[#5e4034] rounded">Quản lý người dùng</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="mt-auto">
+            <button class="text-red-400 hover:underline">\u0110ăng xuất</button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-6 overflow-y-auto">
+        <!-- Tìm kiếm -->
+        <div class="mb-4">
+            <input type="text" placeholder="Tìm kiếm..." class="w-full p-2 rounded bg-[#2c2c2c] text-white placeholder-gray-400" />
+        </div>
+
+        <!-- Tổng quan -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div class="bg-[#2c2c2c] p-4 rounded shadow">
+                <h2 class="text-lg font-semibold mb-2">Tổng doanh thu</h2>
+                <img src="/images/chart1.png" alt="Doanh thu" class="w-full rounded">
+            </div>
+            <div class="bg-[#2c2c2c] p-4 rounded shadow">
+                <h2 class="text-lg font-semibold mb-2">Tổng sản phẩm</h2>
+                <img src="/images/chart2.png" alt="Sản phẩm" class="w-full rounded">
+            </div>
+        </div>
+
+        <!-- Đơn hàng gần đây -->
+        <div class="bg-[#2c2c2c] p-4 rounded shadow">
+            <h2 class="text-lg font-semibold mb-4">Đơn hàng gần đây</h2>
+            <table class="w-full text-left">
+                <thead>
+                    <tr class="text-sm font-bold text-white border-b border-gray-600">
+                        <th class="py-2">Tên</th>
+                        <th>Email</th>
+                        <th>Tổng tiền</th>
+                        <th>Ngày</th>
+                        <th>Chi tiết</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="hover:bg-[#3d3d3d]">
+                        <td class="py-2">Nguyễn A</td>
+                        <td>a@email.com</td>
+                        <td>5,000,000</td>
+                        <td>25/03/2025</td>
+                        <td><a href="#" class="text-blue-400 hover:underline">Xem</a></td>
+                    </tr>
+                    <!-- More rows -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Footer -->
+        <footer class="mt-10 text-center text-sm text-gray-400">
+            Copyright © 2025 Luxury WMS. All Rights Reserved.
+        </footer>
+    </main>
+</div>

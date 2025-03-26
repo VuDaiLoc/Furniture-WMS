@@ -1,0 +1,216 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Luxury WMS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <style>
+        .slider-container {
+            position: relative;
+            height: 80vh;
+            margin: 0; /* Xóa khoảng trắng */
+            padding: 0;
+        }
+
+        .slider-img {
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.7);
+            transition: opacity 1s ease-in-out;
+        }
+
+        .carousel-caption {
+            bottom: 30%;
+            transition: all 1s ease-in-out;
+        }
+
+        .logo {
+            height: 50px;
+            width: auto;
+        }
+
+        .social-icons img {
+            height: 30px;
+            width: auto;
+            margin: 0 10px;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+            .slide.active {
+                opacity: 1;
+            }
+
+        .brown-bar {
+            height: 10px;
+            background-color: #78350f; /* Màu nâu đậm */
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body class="bg-amber-50">
+    <!-- Thanh nâu phía trên -->
+    <div class="brown-bar"></div>
+
+    <header class="bg-amber-900 text-amber-50 shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Logo -->
+            <a class="flex items-center space-x-2" asp-area="" asp-controller="Home" asp-action="Index">
+                <img src="~/images/Logo/cropped_logo_no_border.png" alt="Luxury WMS Logo" class="logo">
+                <span class="text-xl font-bold">Luxury WMS</span>
+            </a>
+
+            <!-- Thanh tìm kiếm -->
+            <div class="hidden md:block w-1/3">
+                <div class="relative">
+                    <input type="text" class="w-full py-2 px-4 rounded-full bg-amber-800 text-amber-50 placeholder-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-600" placeholder="Tìm kiếm...">
+                    <button class="absolute right-3 top-2 text-amber-200 hover:text-amber-50">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Nút đăng nhập -->
+            <div>
+                <a asp-controller="Shared" asp-action="Login" class="bg-amber-700 hover:bg-amber-600 text-amber-50 font-bold py-2 px-6 rounded-full transition duration-300">
+                    Đăng nhập
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container mx-auto px-4">
+        <main role="main">
+            <!-- Slider ảnh nền -->
+            <div id="heroCarousel" class="relative w-full overflow-hidden" style="height: 80vh;">
+                <!-- Slide 1 -->
+                <div class="slide active">
+                    <img src="~/images/Ảnh trang đầu/001.jpg" class="slider-img w-full" alt="Slide 1">
+                    <div class="carousel-caption text-center absolute left-0 right-0">
+                        <h1 class="text-4xl md:text-6xl font-bold mb-4 text-amber-50">THIẾT KẾ NỘI THẤT</h1>
+                        <p class="text-xl md:text-2xl text-amber-200">Tinh tế & Hiện đại</p>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="slide">
+                    <img src="~/images/Ảnh trang đầu/002.jpg" class="slider-img w-full" alt="Slide 2">
+                    <div class="carousel-caption text-center absolute left-0 right-0">
+                        <h1 class="text-4xl md:text-6xl font-bold mb-4 text-amber-50">KHÔNG GIAN SANG TRỌNG</h1>
+                        <p class="text-xl md:text-2xl text-amber-200">Sáng tạo không giới hạn</p>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="slide">
+                    <img src="~/images/Ảnh trang đầu/003.jpg" class="slider-img w-full" alt="Slide 3">
+                    <div class="carousel-caption text-center absolute left-0 right-0">
+                        <h1 class="text-4xl md:text-6xl font-bold mb-4 text-amber-50">THẨM MỸ ĐỘC ĐÁO</h1>
+                        <p class="text-xl md:text-2xl text-amber-200">Thiết kế khác biệt, đẳng cấp</p>
+                    </div>
+                </div>
+
+                <!-- Slide 4 -->
+                <div class="slide">
+                    <img src="~/images/Ảnh trang đầu/004.jpg" class="slider-img w-full" alt="Slide 4">
+                    <div class="carousel-caption text-center absolute left-0 right-0">
+                        <h1 class="text-4xl md:text-6xl font-bold mb-4 text-amber-50">NGHỆ THUẬT KHÔNG GIAN</h1>
+                        <p class="text-xl md:text-2xl text-amber-200">Hiện đại & Tinh tế</p>
+                    </div>
+                </div>
+
+                <!-- Slide 5 -->
+                <div class="slide">
+                    <img src="~/images/Ảnh trang đầu/005.jpg" class="slider-img w-full" alt="Slide 5">
+                    <div class="carousel-caption text-center absolute left-0 right-0">
+                        <h1 class="text-4xl md:text-6xl font-bold mb-4 text-amber-50">ĐẲNG CẤP THƯỢNG LƯU</h1>
+                        <p class="text-xl md:text-2xl text-amber-200">Trải nghiệm không gian xa hoa</p>
+                    </div>
+                </div>
+
+                <!-- Slide 6 -->
+                <div class="slide">
+                    <img src="~/images/Ảnh trang đầu/006.jpg" class="slider-img w-full" alt="Slide 6">
+                    <div class="carousel-caption text-center absolute left-0 right-0">
+                        <h1 class="text-4xl md:text-6xl font-bold mb-4 text-amber-50">THIẾT KẾ CÁ NHÂN HOÁ</h1>
+                        <p class="text-xl md:text-2xl text-amber-200">Phong cách riêng biệt</p>
+                    </div>
+                </div>
+
+                <!-- Slide 7 -->
+                <div class="slide">
+                    <img src="~/images/Ảnh trang đầu/007.jpg" class="slider-img w-full" alt="Slide 7">
+                    <div class="carousel-caption text-center absolute left-0 right-0">
+                        <h1 class="text-4xl md:text-6xl font-bold mb-4 text-amber-50">CHẤT LƯỢNG HOÀN HẢO</h1>
+                        <p class="text-xl md:text-2xl text-amber-200">Vật liệu cao cấp, gia công tinh xảo</p>
+                    </div>
+                </div>
+
+                <!-- Slide 8 -->
+                <div class="slide">
+                    <img src="~/images/Ảnh trang đầu/008.jpg" class="slider-img w-full" alt="Slide 8">
+                    <div class="carousel-caption text-center absolute left-0 right-0">
+                        <h1 class="text-4xl md:text-6xl font-bold mb-4 text-amber-50">ĐỘC NHẤT & SANG TRỌNG</h1>
+                        <p class="text-xl md:text-2xl text-amber-200">Phong cách Hoàng Gia</p>
+                    </div>
+                </div>
+
+                <!-- Slide 9 -->
+                <div class="slide">
+                    <img src="~/images/Ảnh trang đầu/009.jpg" class="slider-img w-full" alt="Slide 9">
+                    <div class="carousel-caption text-center absolute left-0 right-0">
+                        <h1 class="text-4xl md:text-6xl font-bold mb-4 text-amber-50">KHÔNG GIAN LÝ TƯỞNG</h1>
+                        <p class="text-xl md:text-2xl text-amber-200">Thiết kế theo phong cách Châu Âu</p>
+                    </div>
+                </div>
+
+                <!-- Slide 10 -->
+                <div class="slide">
+                    <img src="~/images/Ảnh trang đầu/010.jpg" class="slider-img w-full" alt="Slide 10">
+                    <div class="carousel-caption text-center absolute left-0 right-0">
+                        <h1 class="text-4xl md:text-6xl font-bold mb-4 text-amber-50">HOÀN HẢO TỪNG CHI TIẾT</h1>
+                        <p class="text-xl md:text-2xl text-amber-200">Đẳng cấp - Sang trọng</p>
+                    </div>
+                </div>
+
+                <!-- Nút điều hướng -->
+                <button id="prevBtn" class="absolute top-1/2 left-4 transform -translate-y-1/2 text-amber-50 hover:text-amber-200 text-3xl z-10">
+                    <span class="fas fa-chevron-left"></span>
+                </button>
+                <button id="nextBtn" class="absolute top-1/2 right-4 transform -translate-y-1/2 text-amber-50 hover:text-amber-200 text-3xl z-10">
+                    <span class="fas fa-chevron-right"></span>
+                </button>
+            </div>
+
+            @RenderBody()
+        </main>
+    </div>
+
+    <div class="brown-bar mt-10"></div>
+
+    <footer class="bg-amber-900 text-amber-50 py-6">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="mb-4 md:mb-0">
+                    Copyright © 2025 Luxury WMS. All Rights Reserved.
+                </p>
+                <div class="social-icons flex">
+                    <a href="#" class="hover:opacity-80"><img src="~/images/Logo/Facebook.jpg" alt="Facebook"></a>
+                    <a href="#" class="hover:opacity-80"><img src="~/images/Logo/Messenger.jpg" alt="Messenger"></a>
+                    <a href="#" class="hover:opacity-80"><img src="~/images/Logo/Zalo.png" alt="Zalo"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="~/js/HomePage.js"></script>
+</body>
+</html>
